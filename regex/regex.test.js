@@ -5,18 +5,31 @@
 /* Write a function that take a string and return true if the string only contain uppercase and lowercase
 characters (no numbers and symbols) and it should end with capital A else return false */
 
-function capitalA(s){
+function capitalA(s) {
+    let regex = /A\b/g;
+    let regex2 = /\w/g;
+
+
+
+    if (s.match(regex) && regex2.test(s)) {
+        return true
+    } else {
+        return false
+    }
     // Add your logic.
-    return;
+
 }
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
 which end with io (example@example.io) */
 
-function ioEmail(email){
+function ioEmail(email) {
+
+    let regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9.-]+\.[io]{2,2}$/g;
+    let boolValue=regex.test(email);
     // Add your logic.
-    return;
+    return boolValue;
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
@@ -26,14 +39,31 @@ required extention are jpg, jpeg and png.
 
 */
 
-function imagesSearcher(text){
+function imagesSearcher(text) {
     let arr = [];
+    let reg1 = /\w*(.png)/g;
+    let reg2 = /\w*(.jpg)/g;
+    let reg3 = /\w*(.jpeg)/g;
+
+    let imgPng = text.match(reg1);
+    if(imgPng==null){
+        imgPng=[];
+    }
+    let imgJpg = text.match(reg2);
+    if(imgJpg==null){
+        imgJpg=[];
+    }
+    let imgJpeg = text.match(reg3);
+    if(imgJpeg==null){
+        imgJpeg=[];
+    }
+    arr=imgPng.concat(imgJpg,imgJpeg)
     // Add your logic.
     return arr
 }
 
 
-describe("Test capitalA", ()=>{
+describe("Test capitalA", () => {
     test("It should return true if the input has uppercase and lowercase characters (no numbers and symbols) and it should end with capital A else return false ", () => {
         expect(capitalA("Hello world A")).toStrictEqual(true);
 
