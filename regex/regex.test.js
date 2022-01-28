@@ -9,14 +9,13 @@ function capitalA(s) {
     let regex = /A\b/g;
     let regex2 = /\w/g;
 
-
-
     if (s.match(regex) && regex2.test(s)) {
         return true
     } else {
         return false
     }
     // Add your logic.
+   
 
 }
 
@@ -26,9 +25,12 @@ which end with io (example@example.io) */
 
 function ioEmail(email) {
 
+
     let regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9.-]+\.[io]{2,2}$/g;
     let boolValue=regex.test(email);
-    // Add your logic.
+
+
+
     return boolValue;
 }
 
